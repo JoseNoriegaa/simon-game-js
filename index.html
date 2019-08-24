@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="description" content="A simple game version of the classic simon game, made it with vanilla JS.">
+  <meta name="author" content="Jose Noriega">
+  <title>Simon</title>
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+  <main id="main">
+    <div class="game-wrapper">
+      <div class="gameboard">
+        <button class="game-item up left" ></button>
+        <button class="game-item up right" ></button>
+        <button class="game-item down left" ></button>
+        <button class="game-item down right" ></button>
+        <div class="decoration horizontal"></div>
+        <div class="decoration vertical"></div>
+        <div class="decoration circle">
+          <div class="game-dashboard">
+            <div class="score">
+              00
+            </div>
+            <div class="controls">
+              <div class="btn-wrapper">
+                <span>
+                  start
+                </span>
+                <button class="start"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
