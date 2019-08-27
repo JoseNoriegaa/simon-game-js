@@ -180,3 +180,27 @@ main#main {
 .game-dashboard > .controls > .btn-wrapper > .start:active {
   background-color: #ec4f44;
 }
+
+.github-badge-wrapper {
+  z-index: 10;
+  top: -15px;
+  left: -65px;
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  background-color: white;
+  transform: rotate(-45deg);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  overflow: hidden;
+  padding-top: 30px;
+}
+.github-badge-wrapper > a {
+  height: 100%;
+}
+
+.github-badge-wrapper .github-logo {
+  object-fit: contain;
+  height: 100%;
+}
