@@ -6,5 +6,5 @@ NOTE:
 I made this project just for fun.
 ```
 ## Online demo
-[Comming soon]()
+[Coming soon]()
 
