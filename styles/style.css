@@ -73,32 +73,37 @@ main#main {
   background-color: #6DD353;
 }
 
-.game-item.up.left:active {
+.game-item.up.left:active, .game-item.up.left.active {
   background-color: #8fff73;
 }
 
-.up.right {
+.game-item.up.right {
   background-color: #E83F33;
 }
 
-.up.right:active, :focus {
+.game-item.up.right:active, .game-item.up.right.active {
   background-color: #ff6b60;
 }
 
-.down.left {
+.game-item.down.left {
   background-color: #FEF731;
 }
 
-.down.left:active, :focus {
+.game-item.down.left:active, .game-item.down.left.active {
   background-color: #fffdc1;
 }
 
-.down.right {
+.game-item.down.right {
   background-color: #3FA7F1;
 }
 
-.down.right:active, :focus {
+.game-item.down.right:active, .game-item.down.right.active {
   background-color: #76c6ff;
+}
+
+.game-item.disabled {
+  cursor: pointer !important;
+  pointer-events: none !important;
 }
 
 .gameboard > .decoration {
@@ -140,7 +145,8 @@ main#main {
   flex-direction: column;
 }
 .game-dashboard > .score {
-  width: 30%;
+  width: auto;
+  max-width: 70%;
   height: 30%;
   border-radius: 10px;
   display: flex;
@@ -151,6 +157,8 @@ main#main {
   color: white;
   font-size: 1.5em;
   font-weight: 600;
+  overflow: hidden;
+  padding: 0 10px;
 }
 
 .game-dashboard > .controls {

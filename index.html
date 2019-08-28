@@ -23,23 +23,43 @@
     </div>
     <div class="game-wrapper">
       <div class="gameboard">
-        <button title="Green" class="game-item up left" ></button>
-        <button title="Red" class="game-item up right" ></button>
-        <button title="Yellow" class="game-item down left" ></button>
-        <button title="Blue" class="game-item down right" ></button>
+        <button
+          id="green"
+          title="Green"
+          class="game-item up left disabled"
+          data-item="0"
+        ></button>
+        <button
+          id="red"
+          title="Red"
+          class="game-item up right disabled"
+          data-item="1"
+        ></button>
+        <button
+          id="yellow"
+          title="Yellow"
+          class="game-item down left disabled"
+          data-item="2"
+        ></button>
+        <button
+          id="blue"
+          title="Blue"
+          class="game-item down right disabled"
+          data-item="3"
+        ></button>
         <div class="decoration horizontal"></div>
         <div class="decoration vertical"></div>
         <div class="decoration circle">
           <div class="game-dashboard">
-            <div class="score">
-              00
+            <div id="score" class="score">
+              000
             </div>
             <div class="controls">
               <div class="btn-wrapper">
-                <span>
+                <span id="start-lbl">
                   start
                 </span>
-                <button class="start"></button>
+                <button id="start" class="start"></button>
               </div>
             </div>
           </div>
@@ -47,5 +67,6 @@
       </div>
     </div>
   </main>
+  <script src="scripts/game.js"></script>
 </body>
 </html>
