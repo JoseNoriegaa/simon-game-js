@@ -21,16 +21,16 @@ class Game {
     this.startButton = btnStart;
     this.playerSecuencePosition = 0;
     this.startButton.addEventListener('click', () => {
-      lblStart.innerText = "reset";
+      lblStart.innerText = 'reset';
       this.init();
     });
-    
+
     this.click = this.click.bind(this);
   }
-  
+
   init() {
     this.score = 0;
-    lblScore.innerText = "000";
+    lblScore.innerText = '000';
     this.delay = 1200;
     this.secuence = [];
     this.levelUp();
@@ -47,11 +47,12 @@ class Game {
     const next = this.random(0, 3);
     this.secuence.push(next);
     this.removeControls();
+    this.mainButtonDisabled();
     setTimeout(() => {
       this.secuence.forEach((i, idx) => {
         const intervalFlag = idx === 0 ? 0 : interval;
         end = this.delay * (idx + 1);
-        start = idx === 0 ? 0 :  end - this.delay;
+        start = idx === 0 ? 0 : end - this.delay;
         // On
         setTimeout(() => {
           this.turnOnColor(i);
@@ -63,23 +64,29 @@ class Game {
       });
       setTimeout(() => {
         this.addControls();
-      }, end + interval / 2);
+        this.mainButtonDisabled(false);
+      }, end + (interval / 2));
     }, interval);
   }
 
+  mainButtonDisabled(state = true) {
+    const action = state ? 'add' : 'remove';
+    btnStart.classList[action]('disabled');
+  }
+
   increaseScore() {
-    this.score++;
+    this.score += 1;
     const scoreStr = this.score.toString();
-    const scoreFormat = scoreStr.length < 3 ? '0'.repeat(3 - scoreStr.length) + scoreStr: scoreStr;
-    lblScore.innerText = scoreFormat.length >= 7 ? scoreFormat.substr(0, 6) + '+' : scoreFormat;
+    const scoreFormat = scoreStr.length < 3 ? '0'.repeat(3 - scoreStr.length) + scoreStr : scoreStr;
+    lblScore.innerText = scoreFormat.length >= 7 ? `${scoreFormat.substr(0, 6)}+` : scoreFormat;
   }
 
   turnOnColor(index) {
     this.buttons[index].classList.add('active');
   }
- 
+
   turnOffColor(index) {
-    this.buttons[index].classList.remove('active');      
+    this.buttons[index].classList.remove('active');
   }
 
   addControls() {
@@ -105,23 +112,24 @@ class Game {
       if (pPos >= this.secuence.length - 1) {
         this.levelUp();
       } else {
-        this.playerSecuencePosition++;
+        this.playerSecuencePosition += 1;
       }
     } else {
       this.lost();
     }
   }
-  
+
   lost() {
+    // eslint-disable-next-line no-alert
     alert('You lost');
     lblStart.innerText = 'start';
     this.removeControls();
   }
 
+  // eslint-disable-next-line class-methods-use-this
   random(start, end) {
     return Math.floor(Math.random() * (end - start + 1)) + start;
   }
-
 }
 
 window.onload = () => {
