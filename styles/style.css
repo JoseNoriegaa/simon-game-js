@@ -7,10 +7,11 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  color: #FFFFFF;
 }
 
-
-html, body {
+html,
+body {
   padding: 0px;
   margin: 0px;
   width: 100%;
@@ -21,30 +22,39 @@ body {
   background-color: #0F0C15;
 }
 
+footer {
+  height: 15px;
+  font-size: 12px;
+  color: #f0f0f0;
+  font-weight: 100;
+}
+
 main#main {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 15px);
+  padding-top: 15px;
   align-items: center;
   justify-content: center;
 }
 
 .game-wrapper {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 15px);
   min-width: 300px;
   min-height: 300px;
   max-width: 700px;
   max-height: 700px;
-  background-color:#201C29;
+  background-color: #201C29;
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.gameboard {
-  height: 100vh;
-  width: 100vh;
+#gameboard {
+  height: 100%;
+  width: 100vw;
   border-radius: 50%;
   overflow: hidden;
   margin: 0 auto;
@@ -53,6 +63,12 @@ main#main {
   border-style: solid;
   border-width: 2vh;
   border-color: black;
+}
+
+@media only screen and (max-width: 852px) {
+  #gameboard {
+    height: 100vw;
+  }
 }
 
 .game-item {
@@ -73,64 +89,74 @@ main#main {
   background-color: #6DD353;
 }
 
-.game-item.up.left:active, .game-item.up.left.active {
-  background-color: #8fff73;
+.game-item.up.left:active,
+.game-item.up.left.active {
+  background-color: #b3ffa0;
 }
 
 .game-item.up.right {
   background-color: #E83F33;
 }
 
-.game-item.up.right:active, .game-item.up.right.active {
-  background-color: #ff6b60;
+.game-item.up.right:active,
+.game-item.up.right.active {
+  background-color: #FF9E97;
 }
 
 .game-item.down.left {
   background-color: #FEF731;
 }
 
-.game-item.down.left:active, .game-item.down.left.active {
-  background-color: #fffdc1;
+.game-item.down.left:active,
+.game-item.down.left.active {
+  background-color: #FAF9DF;
 }
 
 .game-item.down.right {
   background-color: #3FA7F1;
 }
 
-.game-item.down.right:active, .game-item.down.right.active {
-  background-color: #76c6ff;
+.game-item.down.right:active,
+.game-item.down.right.active {
+  background-color: #A3D9FF;
 }
 
-.game-item.disabled {
+button.disabled {
   cursor: pointer !important;
   pointer-events: none !important;
 }
 
-.gameboard > .decoration {
+#gameboard>.decoration {
   position: absolute;
   z-index: 10;
 }
 
-.gameboard > .decoration.circle {
+#gameboard>.decoration.circle {
   background: black;
   width: 20vh;
   height: 20vh;
+  max-width: 100px;
+  max-height: 100px;
   border-radius: 10vh;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
 }
-.gameboard > .decoration.horizontal {
+
+#gameboard>.decoration.horizontal {
   background-color: black;
-  height: 5vh;
+  height: 100%;
+  max-height: 25px;
   width: 100%;
   top: 50%;
   transform: translateY(-50%);
 }
-.gameboard > .decoration.vertical {
+
+#gameboard>.decoration.vertical {
   background-color: black;
-  width: 5vh;
+  width: 100%;
+  max-width: 25px;
   height: 100%;
   left: 50%;
   transform: translateX(-50%);
@@ -144,7 +170,8 @@ main#main {
   align-items: center;
   flex-direction: column;
 }
-.game-dashboard > .score {
+
+.game-dashboard>.score {
   width: auto;
   max-width: 70%;
   height: 30%;
@@ -161,7 +188,7 @@ main#main {
   padding: 0 10px;
 }
 
-.game-dashboard > .controls {
+.game-dashboard>.controls {
   width: 100%;
   height: 30%;
   display: flex;
@@ -169,14 +196,15 @@ main#main {
   align-items: center;
   color: white;
 }
-.game-dashboard > .controls > .btn-wrapper {
+
+.game-dashboard>.controls>.btn-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.game-dashboard > .controls > .btn-wrapper > .start {
+.game-dashboard>.controls>.btn-wrapper>.start {
   background-color: #CE362C;
   border: none;
   width: 20px;
@@ -184,9 +212,23 @@ main#main {
   border-radius: 10px;
   outline: none;
   cursor: pointer;
+  margin: 0px;
+  padding: 0px;
 }
-.game-dashboard > .controls > .btn-wrapper > .start:active {
-  background-color: #ec4f44;
+
+@media only screen and (max-height: 500px) {
+  .game-dashboard>.controls>.btn-wrapper>.start {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+.game-dashboard>.controls>.btn-wrapper>.start:active {
+  background-color: #EC4F44;
+}
+
+.game-dashboard>.controls>.btn-wrapper>.start.disabled {
+  background-color: #FF9C94;
 }
 
 .github-badge-wrapper {
@@ -204,7 +246,8 @@ main#main {
   overflow: hidden;
   padding-top: 30px;
 }
-.github-badge-wrapper > a {
+
+.github-badge-wrapper>a {
   height: 100%;
 }
 

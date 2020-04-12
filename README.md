@@ -6,5 +6,5 @@ NOTE:
 I made this project just for fun.
 ```
 ## Online demo
-[Coming soon]()
+[Preview](https://josenoriegaa.github.io/simon-game-js/)
 
