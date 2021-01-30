@@ -121,7 +121,7 @@ class Game {
 
   lost() {
     // eslint-disable-next-line no-alert
-    alert('You lost');
+    alert('Game over');
     lblStart.innerText = 'start';
     this.removeControls();
   }
